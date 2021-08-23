@@ -1,0 +1,185 @@
+.home-page {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .home-filter-bar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 50px;
+
+    @media (max-width: 709px) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .search-input {
+      width: 100%;
+      max-width: 480px;
+      font-family: 'Nunito Sans', sans-serif;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 20px;
+      padding: 18px 18px 18px 74px;
+      color: var(--navbar-color);
+      background-color: var(--navbar-bg);
+      background-image: var(--search-icon);
+      background-repeat: no-repeat;
+      background-size: 18px 18px;
+      background-position: center left 32px;
+      box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.0532439);
+      border-radius: 5px;
+      appearance: none;
+      border: none;
+      outline: none;
+
+      @media (max-width: 709px) {
+        margin-bottom: 20px;
+        max-width: 100%;
+      }
+
+      &::placeholder {
+        color: var(--placeholder);
+      }
+    }
+
+    .filter-select {
+      font-family: 'Nunito Sans', sans-serif;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 20px;
+      color: var(--navbar-color);
+      padding: 18px 50px 18px 24px;
+      background-color: var(--navbar-bg);
+      background-image: var(--filter-icon);
+      background-repeat: no-repeat;
+      background-size: 12px 12px;
+      background-position: center right 18px;
+      box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.0532439);
+      border-radius: 5px;
+      appearance: none;
+      border: none;
+      outline: none;
+
+      @media (max-width: 709px) {
+        max-width: 100%;
+      }
+    }
+  }
+
+  .countries-list {
+    width: 100%;
+    display: flex;
+    align-items: stretch;
+    flex-wrap: wrap;
+
+    .country-item {
+      text-decoration: none;
+      width: calc((100% - 225px) / 4);
+      margin-right: 75px;
+      margin-bottom: 75px;
+      display: flex;
+      flex-direction: column;
+      background: var(--navbar-bg);
+      box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.0294384);
+      border-radius: 5px;
+      overflow: hidden;
+
+      &:nth-child(4n+4) {
+        margin-right: 0;
+      }
+
+      @media (max-width: 1199px) {
+        width: calc((100% - 100px) / 3);
+        margin-right: 50px;
+        margin-bottom: 50px;
+
+        &:nth-child(4n+4) {
+          margin-right: 50px;
+        }
+
+        &:nth-child(3n+3) {
+          margin-right: 0;
+        }
+      }
+
+      @media (max-width: 849px) {
+        width: calc((100% - 20px) / 2);
+        margin-right: 20px;
+        margin-bottom: 20px;
+
+        &:nth-child(4n+4) {
+          margin-right: 20px;
+        }
+
+        &:nth-child(3n+3) {
+          margin-right: 20px;
+        }
+
+        &:nth-child(2n+2) {
+          margin-right: 0;
+        }
+      }
+
+      @media (max-width: 599px) {
+        width: 100%;
+        margin-right: 0;
+
+        &:nth-child(4n+4) {
+          margin-right: 0;
+        }
+
+        &:nth-child(3n+3) {
+          margin-right: 0;
+        }
+      }
+
+      .country-flag-container {
+        position: relative;
+        width: 100%;
+        padding-top: 60%;
+
+        .country-flag {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
+      .country-infos {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: 24px 24px 46px;
+
+        .country-name {
+          font-style: normal;
+          font-weight: 800;
+          font-size: 18px;
+          line-height: 26px;
+          color: var(--navbar-color);
+          margin: 0 0 16px;
+        }
+
+        .country-info {
+          font-style: normal;
+          font-weight: 300;
+          font-size: 14px;
+          line-height: 16px;
+          color: var(--navbar-color);
+          margin: 0 0 8px;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+}
