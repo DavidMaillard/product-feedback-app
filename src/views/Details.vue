@@ -24,9 +24,9 @@
                 </p>
               </section>
             </section>
-            <section class="border-container">
+            <section v-if="borderCountries.length" class="border-container">
               <p class="border-heading">Border Countries:</p>
-              <section v-if="borderCountries.length" class="border-countries">
+              <section class="border-countries">
                 <router-link v-for="border in borderCountries" :key="border.slug" :to="`/country/${border.slug}`" class="border-link">{{ border.name }}</router-link>
               </section>
             </section>
@@ -110,7 +110,7 @@ export default {
       return info
     },
     borderCountries() {
-      let countries = null
+      let countries = []
 
       if (this.country.borders.length) {
         countries = this.countries
