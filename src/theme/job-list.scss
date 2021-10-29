@@ -1,0 +1,130 @@
+.job-list-container {
+  @extend .container;
+
+  .job-list {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+
+    .job-item {
+      position: relative;
+      width: calc((100% - 60px) / 3);
+      margin-right: 30px;
+      margin-top: 25px;
+      background: var(--filters-bg-color);
+      border-radius: 6px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      min-height: 230px;
+      padding: 50px 32px 32px;
+      margin-bottom: 40px;
+
+      &:nth-child(3n+3) {
+        margin-right: 0;
+      }
+
+      @media (max-width: 1023px) {
+        width: calc((100% - 10px) / 2);
+        margin-right: 10px;
+
+        &:nth-child(3n+3) {
+          margin-right: 10px;
+        }
+
+        &:nth-child(2n+2) {
+          margin-right: 0;
+        }
+      }
+
+      @media (max-width: 767px) {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 24px;
+
+        &:nth-child(3n+3) {
+          margin-right: 0;
+        }
+      }
+
+      .job-logo-container {
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        left: 32px;
+        top: -25px;
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .job-logo {
+          max-width: calc(100% - 10px);
+          max-height: 20px;
+        }
+      }
+
+      .job-info {
+        flex: 1;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 16px;
+
+        .job-post {
+          display: flex;
+          align-items: center;
+          margin: 0 0 16px;
+
+          span {
+            display: flex;
+            align-items: center;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 16px;
+            line-height: 16px;
+            color: $darkGrey;
+
+            &:first-child:after {
+              content: '';
+              display: flex;
+              margin: 0 12px;
+              width: 4px;
+              height: 4px;
+              border-radius: 4px;
+              background-color: $darkGrey;
+            }
+          }
+        }
+
+        .job-title {
+          font-style: normal;
+          font-weight: bold;
+          font-size: 20px;
+          line-height: 20px;
+          color: $veryDarkBlue;
+          margin: 0 0 16px;
+        }
+
+        .job-company {
+          font-style: normal;
+          font-weight: normal;
+          font-size: 16px;
+          line-height: 16px;
+          color: $darkGrey;
+          margin: 0;
+        }
+      }
+
+      .job-country {
+        font-style: normal;
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 14px;
+        color: $violet;
+        margin: 0;
+      }
+    }
+  }
+}

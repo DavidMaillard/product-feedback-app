@@ -7,7 +7,15 @@
 .header-filters-bar-container {
   @extend .container;
   transform: translateY(-50%);
-  margin-bottom: 80px;
+  margin-bottom: 45px;
+
+  @media (max-width: 1023px) {
+    margin-bottom: 24px;
+  }
+
+  @media (max-width: 767px) {
+    margin-bottom: 0;
+  }
 
   .header-filters-bar {
     width: 100%;
@@ -171,7 +179,7 @@
       min-width: 120px;
       margin-right: 16px;
 
-      @media (max-width: 767px) {
+      @media (max-width: 830px) {
         width: 48px;
         height: 48px;
         min-width: auto;
