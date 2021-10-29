@@ -18,10 +18,13 @@
   </div>
 </template>
 <script>
-import NavBar from '@/components/NavBar'
-import NewContentAvailableToastr from '@/components/NewContentAvailableToastr'
-import AppleAddToHomeScreenModal from '@/components/AppleAddToHomeScreenModal'
 import { mapState, mapActions, mapGetters, mapMutations } from 'vuex'
+// eslint-disable-next-line import/extensions
+import NavBar from '@/components/NavBar'
+// eslint-disable-next-line import/extensions
+import NewContentAvailableToastr from '@/components/NewContentAvailableToastr'
+// eslint-disable-next-line import/extensions
+import AppleAddToHomeScreenModal from '@/components/AppleAddToHomeScreenModal'
 
 export default {
   components: { NavBar, NewContentAvailableToastr, AppleAddToHomeScreenModal },
@@ -50,7 +53,6 @@ export default {
 <style lang="scss">
 @import '@/theme/app.scss';
 body {
-  font-family: 'Nunito Sans', sans-serif;
   margin: 0;
 
   * {
@@ -61,16 +63,15 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    font-family: $fontKumbh;
+    color: var(--text-color);
+    background-color: var(--app-bg-color);
 
     .main-wrapper {
       flex: 1;
       display: flex;
       justify-content: center;
       background-color: var(--app-light);
-
-      &.gray {
-        background-color: var(--app-gray);
-      }
 
       .main-container {
         width: 100%;

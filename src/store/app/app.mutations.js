@@ -5,6 +5,5 @@ export default {
   setShowAddToHomeScreenModalForApple: (state, value) =>
     (state.showAddToHomeScreenModalForApple = value),
   setRefreshingApp: (state, value) => (state.refreshingApp = value),
-  setDarkMode: (state, value) => (state.darkMode = value),
-  setCountries: (state, value) => (state.countries = value)
+  setDarkMode: (state, value) => (state.darkMode = value)
 }

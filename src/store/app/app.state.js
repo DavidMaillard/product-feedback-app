@@ -5,6 +5,5 @@ export default {
   SWRegistrationForNewContent: null,
   showAddToHomeScreenModalForApple: false,
   refreshingApp: false,
-  darkMode: false,
-  countries: null
+  darkMode: false
 }

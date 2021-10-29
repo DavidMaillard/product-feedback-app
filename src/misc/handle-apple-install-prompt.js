@@ -1,5 +1,6 @@
-import store from '@/store'
 import { isNil } from 'lodash'
+// eslint-disable-next-line import/extensions
+import store from '@/store'
 
 const isIosOnBrowser =
   ['iPhone', 'iPad', 'iPod'].includes(navigator.platform) &&

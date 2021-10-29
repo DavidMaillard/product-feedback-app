@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/extensions
 import store from '@/store'
 
 store.commit('app/setNetworkOnline', navigator.onLine)

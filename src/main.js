@@ -3,10 +3,15 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+// eslint-disable-next-line import/extensions
 import '@/misc/register-service-worker'
+// eslint-disable-next-line import/extensions
 import '@/misc/handle-network-status'
+// eslint-disable-next-line import/extensions
 import '@/firebase/init'
+// eslint-disable-next-line import/extensions
 import '@/firebase/authentication'
+// eslint-disable-next-line import/extensions
 import '@/misc/handle-apple-install-prompt'
 import 'pwacompat'
 
@@ -17,11 +22,3 @@ new Vue({
   store,
   render: h => h(App)
 }).$mount('#app')
-
-// eslint-disable-next-line no-console
-console.info(`
-🍱 This app was bootstrapped with bento-starter 🍱
-
-👉 https://bento-starter.netlify.com/
-
-`)

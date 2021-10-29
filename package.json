@@ -1,5 +1,5 @@
 {
-  "name": "rest-api-countries",
+  "name": "devjobs-web-app",
   "version": "1.0.0",
   "scripts": {
     "serve": "vue-cli-service serve",

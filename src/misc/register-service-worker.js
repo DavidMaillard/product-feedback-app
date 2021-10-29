@@ -1,5 +1,6 @@
 import { register } from 'register-service-worker'
 
+// eslint-disable-next-line import/extensions
 import store from '@/store'
 
 if (process.env.NODE_ENV === 'production') {
