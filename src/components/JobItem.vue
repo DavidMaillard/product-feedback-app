@@ -1,5 +1,5 @@
 <template>
-  <section class="job-item">
+  <router-link :to="`/${job.id}/${encodeURI(job.position)}`" class="job-item">
     <!-- Job Logo -->
     <section
       class="job-logo-container"
@@ -18,7 +18,7 @@
     </section>
     <!-- Job Country -->
     <p class="job-country">{{ job.location }}</p>
-  </section>
+  </router-link>
 </template>
 
 <script>

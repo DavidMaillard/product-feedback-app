@@ -54,8 +54,18 @@ h4 {
   border: none;
   outline: none;
   transition: background-color ease-out .2s;
+  text-decoration: none;
 
   &:hover {
     background-color: $lightViolet;
+  }
+
+  &.light {
+    background-color: var(--button-light-bg-color);
+    color: var(--button-light-color);
+
+    &:hover {
+      background-color: var(--button-light-bg-color-hvr);
+    }
   }
 }

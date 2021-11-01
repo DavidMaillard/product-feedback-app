@@ -17,20 +17,30 @@ $fontKumbh: 'Kumbh Sans', sans-serif;
 :root {
   // Main
   --text-color: #19202D;
+  --light-text-color: #6E8098;
   --app-bg-color: #f2f2f2;
   // Header
   --filters-bg-color: #fff;
   --checkbox-bg-color: #E7E8E9;
   --placeholder-color: #8C8F96;
+  // Button Light
+  --button-light-bg-color: #EEEFFC;
+  --button-light-bg-color-hvr: #C5C9F4;
+  --button-light-color: #5964E0;
 }
 
 #app.darkMode {
   // Main
   --text-color: #fff;
+  --light-text-color: #9DAEC2;
   --app-bg-color: #121721;
   // Header
   --filters-bg-color: #19202D;
   --checkbox-bg-color: #313743;
+  // Button Light
+  --button-light-bg-color: #303642;
+  --button-light-bg-color-hvr: #525861;
+  --button-light-color: #fff;
 }
 
 // Main classes
@@ -38,4 +48,8 @@ $fontKumbh: 'Kumbh Sans', sans-serif;
   width: 100%;
   max-width: calc(1110px + 48px);
   padding: 0 20px;
+
+  &.small {
+    max-width: calc(730px + 48px);
+  }
 }
