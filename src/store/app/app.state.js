@@ -8,7 +8,7 @@ export default {
   darkMode: false,
   filters: {
     query: '',
-    location: '',
+    location: false,
     fullTime: false
   }
 }
