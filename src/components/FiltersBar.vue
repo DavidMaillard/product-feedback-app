@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
+import { mapState, mapMutations } from 'vuex'
 
 export default {
   props: {
@@ -64,7 +64,11 @@ export default {
       })
 
       return finalLocations.sort()
-    }
+    },
+    ...mapState('app', ['filters'])
+  },
+  mounted() {
+    this.search = this.filters
   },
   methods: {
     doSearch() {
