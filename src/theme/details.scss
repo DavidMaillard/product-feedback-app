@@ -11,6 +11,10 @@
     @extend .small;
     margin-bottom: 32px;
 
+    @media (max-width: 767px) {
+      margin-bottom: 24px;
+    }
+
     .details-company {
       width: 100%;
       display: flex;
@@ -21,6 +25,14 @@
       border-top-right-radius: 6px;
       overflow: hidden;
 
+      @media (max-width: 767px) {
+        flex-direction: column;
+        align-items: center;
+        overflow: visible;
+        border-radius: 6px;
+        margin-top: 25px;
+      }
+
       .job-logo-container {
         flex-shrink: 0;
         width: 140px;
@@ -29,6 +41,15 @@
         align-items: center;
         justify-content: center;
         padding: 30px;
+
+        @media (max-width: 767px) {
+          width: 50px;
+          height: 50px;
+          padding: 5px;
+          border-radius: 15px;
+          overflow: hidden;
+          transform: translateY(-50%);
+        }
 
         .job-logo {
           width: 100%;
@@ -44,6 +65,11 @@
         flex-direction: column;
         align-items: flex-start;
 
+        @media (max-width: 767px) {
+          padding: 0;
+          align-items: center;
+        }
+
         .company-name {
           font-family: $fontKumbh;
           font-style: normal;
@@ -51,7 +77,12 @@
           font-size: 24px;
           line-height: 100%;
           color: var(--text-color);
+          text-align: center;
           margin: 0 0 13px;
+
+          @media (max-width: 767px) {
+            font-size: 20px;
+          }
         }
 
         .company-website {
@@ -61,12 +92,18 @@
           font-size: 16px;
           line-height: 100%;
           color: #6E8098;
+          text-align: center;
           margin: 0;
         }
       }
 
       .company-link-section {
         padding: 20px 40px 20px 0;
+        display: flex;
+
+        @media (max-width: 767px) {
+          padding: 24px 0 32px;
+        }
 
         .company-link {
           @extend .button;
@@ -81,6 +118,10 @@
     @extend .small;
     margin-bottom: 80px;
 
+    @media (max-width: 767px) {
+      margin-bottom: 64px;
+    }
+
     .details-job {
       width: 100%;
       display: flex;
@@ -90,6 +131,10 @@
       border-radius: 6px;
       padding: 48px;
 
+      @media (max-width: 767px) {
+        padding: 40px 24px;
+      }
+
       .details-top-info {
         width: 100%;
         display: flex;
@@ -97,15 +142,25 @@
         justify-content: space-between;
         margin-bottom: 40px;
 
+        @media (max-width: 767px) {
+          flex-direction: column;
+          align-items: flex-start;
+          margin-bottom: 32px;
+        }
+
         .left-side {
           display: flex;
           flex-direction: column;
           align-items: flex-start;
 
+          @media (max-width: 767px) {
+            margin-bottom: 54px;
+          }
+
           .job-post {
             display: flex;
             align-items: center;
-            margin: 0 0 16px;
+            margin: 0 0 8px;
 
             span {
               display: flex;
@@ -131,10 +186,15 @@
           .job-title {
             font-style: normal;
             font-weight: bold;
-            font-size: 20px;
-            line-height: 20px;
+            font-size: 28px;
+            line-height: 100%;
             color: var(--text-color);
             margin: 0 0 16px;
+
+            @media (max-width: 767px) {
+              font-size: 20px;
+              margin-bottom: 12px;
+            }
           }
 
           .job-country {
@@ -148,6 +208,12 @@
         }
 
         .right-side {
+          display: flex;
+
+          @media (max-width: 767px) {
+            width: 100%;
+          }
+
           .apply-button {
             @extend .button;
           }
@@ -212,9 +278,17 @@
     background-color: var(--filters-bg-color);
     padding: 22px 0;
 
+    @media (max-width: 767px) {
+      padding: 24px;
+    }
+
     .job-application-container {
       @extend .container;
       @extend .small;
+
+      @media (max-width: 767px) {
+        padding: 0;
+      }
 
       .job-application {
         width: 100%;
@@ -226,6 +300,10 @@
           display: flex;
           flex-direction: column;
           align-items: flex-start;
+
+          @media (max-width: 767px) {
+            display: none;
+          }
 
           .application-title {
             font-family: $fontKumbh;
@@ -249,6 +327,12 @@
         }
 
         .right-side {
+          display: flex;
+
+          @media (max-width: 767px) {
+            width: 100%;
+          }
+
           .apply-button {
             @extend .button;
           }

@@ -68,4 +68,8 @@ h4 {
       background-color: var(--button-light-bg-color-hvr);
     }
   }
+
+  @media (max-width: 767px) {
+    width: 100%;
+  }
 }
