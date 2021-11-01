@@ -50,8 +50,7 @@
       }
 
       &::placeholder {
-        color: var(--text-color);
-        opacity: .5;
+        color: var(--placeholder-color);
       }
     }
 
@@ -73,8 +72,7 @@
       }
 
       &::placeholder {
-        color: var(--text-color);
-        opacity: .5;
+        color: var(--placeholder-color);
       }
     }
 
@@ -102,9 +100,8 @@
         display: none;
       }
 
-      &::placeholder {
-        color: var(--text-color);
-        opacity: .5;
+      &::placeholder, &.is-placeholder {
+        color: var(--placeholder-color);
       }
     }
 
@@ -264,11 +261,10 @@
       appearance: none;
       outline: none;
       cursor: pointer;
-      border-bottom: 1px solid rgba(#6E8098 ,0.2);
+      border-bottom: 1px solid rgba(#6E8098, 0.2);
 
-      &::placeholder {
-        color: var(--text-color);
-        opacity: .5;
+      &::placeholder, &.is-placeholder {
+        color: var(--placeholder-color);
       }
     }
 

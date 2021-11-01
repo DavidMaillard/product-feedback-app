@@ -5,5 +5,10 @@ export default {
   SWRegistrationForNewContent: null,
   showAddToHomeScreenModalForApple: false,
   refreshingApp: false,
-  darkMode: false
+  darkMode: false,
+  filters: {
+    query: '',
+    location: '',
+    fullTime: false
+  }
 }
