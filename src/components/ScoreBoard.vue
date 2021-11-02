@@ -30,6 +30,12 @@ export default {
   align-items: center;
   justify-content: space-between;
 
+  @media (max-width: 767px) {
+    width: calc(100% - 64px);
+    margin: 32px 32px 100px 32px;
+    padding: 12px;
+  }
+
   .app-title {
     display: flex;
     flex-direction: column;
@@ -37,6 +43,10 @@ export default {
 
     svg {
       height: 92px;
+
+      @media (max-width: 767px) {
+        height: 48px;
+      }
     }
   }
 
@@ -50,6 +60,11 @@ export default {
     align-items: center;
     padding: 16px;
 
+    @media (max-width: 767px) {
+      min-width: 80px;
+      padding: 10px;
+    }
+
     .score-label {
       font-family: Barlow Semi Condensed;
       font-style: normal;
@@ -59,6 +74,11 @@ export default {
       letter-spacing: 2.5px;
       color: #2A45C2;
       margin: 0;
+
+      @media (max-width: 767px) {
+        font-size: 10px;
+        line-height: 12px;
+      }
     }
 
     .score {
@@ -70,6 +90,11 @@ export default {
       text-align: center;
       color: #565468;
       margin: 0;
+
+      @media (max-width: 767px) {
+        font-size: 40px;
+        line-height: 40px;
+      }
     }
   }
 }
