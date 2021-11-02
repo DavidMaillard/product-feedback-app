@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <score-board />
     <router-view />
 
     <new-content-available-toastr
@@ -20,14 +19,12 @@
 <script>
 import { mapState, mapActions, mapGetters } from 'vuex'
 // eslint-disable-next-line import/extensions
-import ScoreBoard from '@/components/ScoreBoard'
-// eslint-disable-next-line import/extensions
 import NewContentAvailableToastr from '@/components/NewContentAvailableToastr'
 // eslint-disable-next-line import/extensions
 import AppleAddToHomeScreenModal from '@/components/AppleAddToHomeScreenModal'
 
 export default {
-  components: { NewContentAvailableToastr, AppleAddToHomeScreenModal, ScoreBoard },
+  components: { NewContentAvailableToastr, AppleAddToHomeScreenModal },
   computed: {
     ...mapGetters('app', ['newContentAvailable']),
     ...mapState('app', ['showAddToHomeScreenModalForApple', 'refreshingApp'])
@@ -45,7 +42,7 @@ export default {
 @import '@/theme/app.scss';
 body {
   margin: 0;
-  background: radial-gradient(134.34% 134.34% at 50% 0%, #1F3757 0%, #131537 100%);
+  background-color: #F7F8FD;
 
   * {
     box-sizing: border-box;
@@ -58,6 +55,15 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 94px 0 130px;
+
+    @media (max-width: 1023px) {
+      margin: 56px 0 115px;
+    }
+
+    @media (max-width: 767px) {
+      margin: 0;
+    }
   }
 }
 </style>
