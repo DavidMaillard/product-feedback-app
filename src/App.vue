@@ -1,6 +1,6 @@
 <template>
-  <div id="app" :class="{darkMode}">
-    <nav-bar></nav-bar>
+  <div id="app">
+    <score-board />
     <router-view />
 
     <new-content-available-toastr
@@ -18,34 +18,25 @@
   </div>
 </template>
 <script>
-import { mapState, mapActions, mapGetters, mapMutations } from 'vuex'
+import { mapState, mapActions, mapGetters } from 'vuex'
 // eslint-disable-next-line import/extensions
-import NavBar from '@/components/NavBar'
+import ScoreBoard from '@/components/ScoreBoard'
 // eslint-disable-next-line import/extensions
 import NewContentAvailableToastr from '@/components/NewContentAvailableToastr'
 // eslint-disable-next-line import/extensions
 import AppleAddToHomeScreenModal from '@/components/AppleAddToHomeScreenModal'
 
 export default {
-  components: { NavBar, NewContentAvailableToastr, AppleAddToHomeScreenModal },
+  components: { NewContentAvailableToastr, AppleAddToHomeScreenModal, ScoreBoard },
   computed: {
     ...mapGetters('app', ['newContentAvailable']),
-    ...mapState('app', ['showAddToHomeScreenModalForApple', 'refreshingApp', 'darkMode'])
+    ...mapState('app', ['showAddToHomeScreenModalForApple', 'refreshingApp'])
   },
   methods: {
     ...mapActions('app', [
       'closeAddToHomeScreenModalForApple',
       'serviceWorkerSkipWaiting'
-    ]),
-    ...mapMutations('app', [
-      'setCountries'
     ])
-  },
-  async mounted() {
-    const response = await fetch('https://restcountries.eu/rest/v2/all')
-    .then(data => data.json())
-
-    this.setCountries(response)
   }
 }
 </script>
@@ -54,31 +45,18 @@ export default {
 @import '@/theme/app.scss';
 body {
   margin: 0;
+  background: radial-gradient(134.34% 134.34% at 50% 0%, #1F3757 0%, #131537 100%);
 
   * {
     box-sizing: border-box;
   }
 
   #app {
+    width: 100%;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    font-family: $fontKumbh;
-    color: var(--text-color);
-    background-color: var(--app-bg-color);
-
-    .main-wrapper {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      background-color: var(--app-light);
-
-      .main-container {
-        width: 100%;
-        max-width: 1320px;
-        padding: 50px 20px;
-      }
-    }
+    align-items: center;
   }
 }
 </style>

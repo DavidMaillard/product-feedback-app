@@ -2,7 +2,6 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Head from 'vue-head'
 import Home from '@/views/Home.vue'
-import Details from '@/views/Details.vue'
 
 Vue.use(Router)
 
@@ -22,14 +21,6 @@ const router = new Router({
       path: '/',
       name: 'home',
       component: Home,
-      meta: {
-        authNotRequired: true
-      }
-    },
-    {
-      path: '/:id/:slug',
-      name: 'details',
-      component: Details,
       meta: {
         authNotRequired: true
       }

@@ -5,10 +5,5 @@ export default {
   SWRegistrationForNewContent: null,
   showAddToHomeScreenModalForApple: false,
   refreshingApp: false,
-  darkMode: false,
-  filters: {
-    query: '',
-    location: false,
-    fullTime: false
-  }
+  score: localStorage.getItem('rock-paper-scissor-score') ?? 0
 }

@@ -5,6 +5,8 @@ export default {
   setShowAddToHomeScreenModalForApple: (state, value) =>
     (state.showAddToHomeScreenModalForApple = value),
   setRefreshingApp: (state, value) => (state.refreshingApp = value),
-  setDarkMode: (state, value) => (state.darkMode = value),
-  setFilters: (state, value) => (state.filters = value)
+  setScore: (state) => {
+    state.score = parseInt(parseInt(state.score, 10) + 1, 10)
+    localStorage.setItem('rock-paper-scissor-score', state.score)
+  }
 }
