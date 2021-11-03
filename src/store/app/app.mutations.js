@@ -13,5 +13,23 @@ export default {
   },
   deleteFeedback: (state, value) => {
     state.productRequests = state.productRequests.filter(el => el.id !== value)
+  },
+  replyToComment: (state, value) => {
+    const comment = state.productRequests.find(el => el.id === value.feedbackId).comments.find(el => el.id === value.commentId)
+
+    if (typeof(comment.replies) === "undefined") {
+      comment.replies = [value.reply]
+    } else {
+      comment.replies.push(value.reply)
+    }
+  },
+  addComment: (state, value) => {
+    const feedback = state.productRequests.find(el => el.id === value.feedbackId)
+
+    if (typeof(feedback.comments) === "undefined") {
+      feedback.comments = [value.comment]
+    } else {
+      feedback.comments.push(value.comment)
+    }
   }
 }

@@ -111,6 +111,7 @@ export default {
     line-height: 20px;
     color: #647196;
     margin-bottom: 68px;
+    cursor: pointer;
 
     @media (max-width: 767px) {
       font-size: 13px;
