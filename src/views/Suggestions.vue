@@ -16,7 +16,7 @@
           :key="index"
           class="aside-category"
           :class="{ 'is-active': activeCategory === category.toLowerCase() }"
-          @click="activeCategory = category.toLowerCase()"
+          @click="selectCategory(category.toLowerCase())"
         >
           {{ category }}
         </div>
@@ -24,7 +24,7 @@
       <section class="aside-roadmap">
         <section class="roadmap-heading">
           <p class="heading-title">Roadmap</p>
-          <routerlink to="/" class="heading-link">View</routerlink>
+          <router-link to="/roadmap" class="heading-link">View</router-link>
         </section>
         <section class="roadmap-statuses">
           <section v-for="(status, index) in statuses" :key="index" class="roadmap-status" :class="status.color">
@@ -57,7 +57,7 @@
           </section>
         </section>
         <section class="right-side">
-          <router-link to="/" class="bar-button">+ Add Feedback</router-link>
+          <router-link to="/add" class="bar-button">+ Add Feedback</router-link>
         </section>
       </section>
       <section v-if="suggestions.length" class="suggestions-list">
@@ -67,18 +67,24 @@
               <svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11 7"><path d="m1.334 6 4-4 4 4" stroke="#4661E6" stroke-width="2"/></svg>
               <span>{{ suggestion.upvotes }}</span>
             </section>
-            </section>
-          <section class="suggestion-info">
+          </section>
+          <router-link :to="`/details/${suggestion.id}`" class="suggestion-info">
             <p class="suggestion-title">{{ suggestion.title }}</p>
             <p class="suggestion-description">{{ suggestion.description }}</p>
             <p class="suggestion-category">{{ suggestion.finalCategory }}</p>
-          </section>
+          </router-link>
           <section class="suggestion-comments">
             <svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 16"><path d="M2.62 16H1.346l.902-.91c.486-.491.79-1.13.872-1.823C1.036 11.887 0 9.89 0 7.794 0 3.928 3.52 0 9.03 0 14.87 0 18 3.615 18 7.455c0 3.866-3.164 7.478-8.97 7.478-1.016 0-2.078-.137-3.025-.388A4.705 4.705 0 0 1 2.62 16Z" fill="#CDD2EE"/></svg>
             <span v-if="suggestion.comments">{{ suggestion.comments.length }}</span>
             <span v-else class="none">0</span>
           </section>
         </article>
+      </section>
+      <section v-else class="suggestions-none">
+        <svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 131 137"><g opacity=".5"><path d="M62.827 19.743c-29.116-.006-52.726 23.59-52.74 52.705-.013 29.117 23.576 52.733 52.692 52.753 29.117.021 52.739-23.562 52.767-52.678a52.718 52.718 0 0 0-52.72-52.78Z" stroke="#3A4374" stroke-width="1.045" stroke-linecap="round" stroke-linejoin="round"/><ellipse cx="90.465" cy="55.319" rx="2.436" ry="3.624" fill="#231F20"/><path d="m.892 56.851 123.83-27.405-24.36-7.105S87.167.468 83.645.011c-3.522-.457-67.528 13.195-67.528 13.195l-4.06 30.816L.892 56.852ZM26.673 131.048l-13.997-22.127L73.86 98.456l4.202 21.203 6.212-19.528 31.302 6.181-6.364 24.736h-82.54Z" fill="#3A4374"/><path d="m105.074 83.067 5.64-.781 2.914 21.053a2.68 2.68 0 0 1-2.287 3.022l-.332.046a2.679 2.679 0 0 1-3.021-2.287l-2.914-21.053Z" fill="#fff"/><path fill-rule="evenodd" clip-rule="evenodd" d="M107.487 104.201a3.198 3.198 0 0 0 3.156 2.751c.14-.001.279-.012.416-.031l.325-.051a3.163 3.163 0 0 0 2.72-3.593l-2.892-21.05a.475.475 0 0 0-.193-.336.508.508 0 0 0-.376-.101l-5.633.781a.507.507 0 0 0-.436.569l2.913 21.061Zm1.005-.142-2.842-20.554 4.628-.589 2.842 20.554a2.171 2.171 0 0 1-1.847 2.446h-.335a2.181 2.181 0 0 1-2.446-1.857Z" fill="#3A4374"/><path fill="#fff" d="m100.742 64.484 9.1-1.26 2.85 20.591-9.1 1.26z"/><path fill-rule="evenodd" clip-rule="evenodd" d="M103.285 85.495a.546.546 0 0 0 .304.101l.061-.01 9.135-1.259a.508.508 0 0 0 .437-.568l-2.853-20.595a.498.498 0 0 0-.568-.436l-9.135 1.259a.538.538 0 0 0-.335.193.494.494 0 0 0-.091.375l2.852 20.605a.454.454 0 0 0 .193.335Zm.741-.985-2.71-19.59 8.12-1.116 2.71 19.59-8.12 1.116Z" fill="#3A4374"/><rect x="105.568" y="99.342" width="9.186" height="36.154" rx="3.248" transform="rotate(-7.88 105.568 99.342)" fill="#fff"/><path fill-rule="evenodd" clip-rule="evenodd" d="M109.568 132.022a3.755 3.755 0 0 0 3.715 3.238l.507.01 2.68-.375a3.756 3.756 0 0 0 3.197-4.223l-4.06-29.435a3.745 3.745 0 0 0-4.222-3.197l-2.68.365a3.775 3.775 0 0 0-2.476 1.452 3.734 3.734 0 0 0-.721 2.781l4.06 29.384Zm1.959-33.008c.125-.01.25-.01.375 0l-.03.01a2.74 2.74 0 0 1 2.7 2.365l4.06 29.435a2.74 2.74 0 0 1-2.335 3.045l-2.679.376a2.75 2.75 0 0 1-3.045-2.335l-4.06-29.435a2.666 2.666 0 0 1 .528-2.03 2.708 2.708 0 0 1 1.806-1.065l2.68-.366Z" fill="#3A4374"/><circle cx="104.564" cy="58.607" r="24.39" fill="#fff"/><path fill-rule="evenodd" clip-rule="evenodd" d="M79.672 59.73c.605 13.297 11.56 23.77 24.871 23.775 1.161 0 2.321-.078 3.472-.233 13.598-1.924 23.081-14.48 21.213-28.085-1.823-13.187-13.691-22.61-26.947-21.394-13.256 1.215-23.214 12.639-22.609 25.937Zm21.572-24.793a24.138 24.138 0 0 1 3.299-.223h.041c11.896.052 21.949 8.833 23.599 20.615a23.894 23.894 0 1 1-26.939-20.392Z" fill="#3A4374"/><circle cx="104.564" cy="58.607" r="19.813" fill="#fff"/><path fill-rule="evenodd" clip-rule="evenodd" d="M84.265 59.328c.377 10.932 9.35 19.6 20.288 19.6.934 0 1.867-.064 2.792-.193 10.835-1.505 18.529-11.324 17.4-22.204-1.13-10.88-10.678-18.91-21.591-18.155-10.913.754-19.266 10.02-18.889 20.952Zm17.599-19.803c.891-.121 1.79-.182 2.689-.183 10.389.023 18.893 8.27 19.234 18.652.341 10.383-7.603 19.17-17.968 19.874-10.364.704-19.424-6.928-20.49-17.262-1.066-10.333 6.245-19.654 16.535-21.08Z" fill="#3A4374"/><path d="M127.858 113.59a14.764 14.764 0 0 0-4.973-4.06c-5.816-3.045-12.485-2.944-18.605-1.015-2.172.69-6.385 1.674-6.608 4.557a2.68 2.68 0 0 0 1.939 2.538c1.11.288 2.27.333 3.4.131a8.774 8.774 0 0 0-4.598 1.158c-1.31.923-2.03 2.943-.954 4.171a3.435 3.435 0 0 0 1.776 1.015 8.115 8.115 0 0 0 4.517-.061c-1.59.305-3.14.792-4.618 1.452-.894.396-1.888 1.096-1.787 2.03.102.934 1.015 1.36 1.848 1.644 1.751.601 3.58.943 5.43 1.015a10.7 10.7 0 0 0-4.415 1.898c-2.03 1.705-2.03 4.943.72 5.867a8.12 8.12 0 0 0 2.72.314c8.12 0 17.844-1.015 23.345-7.774a12.616 12.616 0 0 0 2.599-11.48 11 11 0 0 0-1.736-3.4Z" fill="#fff"/><path fill-rule="evenodd" clip-rule="evenodd" d="M100.768 136.387a8.568 8.568 0 0 0 2.821.335l.031.02c8.039-.01 18.006-.924 23.761-7.958a13.083 13.083 0 0 0 2.69-11.956 11.66 11.66 0 0 0-1.837-3.533 15.224 15.224 0 0 0-5.147-4.242c-5.46-2.781-12.21-3.157-18.99-1.015l-.65.193-.068.02c-2.416.741-6.014 1.844-6.245 4.78a3.118 3.118 0 0 0 1.939 2.914c-.359.142-.7.326-1.015.548a4.059 4.059 0 0 0-1.645 2.71 2.8 2.8 0 0 0 .6 2.192c.539.588 1.248.993 2.03 1.157.18.054.362.098.547.132l-.72.305c-1.401.659-2.183 1.715-2.03 2.588.152.873.832 1.563 2.182 2.03.991.345 2.01.606 3.045.781a7.58 7.58 0 0 0-2.193 1.269 4.426 4.426 0 0 0-1.522 4.06 3.503 3.503 0 0 0 2.416 2.67Zm-1.431-12.515a20.03 20.03 0 0 1 3.288-1.147c.426-.05.847-.135 1.259-.254a.519.519 0 0 0 .345-.609.508.508 0 0 0-.589-.376 28.46 28.46 0 0 0-1.228.274 7.781 7.781 0 0 1-3.045-.203 2.945 2.945 0 0 1-1.523-.832 1.817 1.817 0 0 1-.365-1.411 3.045 3.045 0 0 1 1.228-2.03 6.25 6.25 0 0 1 2.934-.954c.235-.005.467-.031.696-.057.246-.027.488-.054.725-.054a.518.518 0 0 0 .456-.549.527.527 0 0 0-.538-.466l-.088.006c-.42.028-.857.058-1.302.105a4.928 4.928 0 0 1-1.817-.223 2.203 2.203 0 0 1-1.604-2.03c.183-2.272 3.445-3.256 5.597-3.906l.006-.002.66-.203c6.526-2.03 12.992-1.675 18.219 1.015a14.087 14.087 0 0 1 4.801 3.959 10.635 10.635 0 0 1 1.685 3.217 12.08 12.08 0 0 1-2.517 11.013c-5.481 6.709-15.154 7.582-22.98 7.582a7.316 7.316 0 0 1-2.548-.284 2.478 2.478 0 0 1-1.745-1.898 3.36 3.36 0 0 1 1.187-3.106 10.56 10.56 0 0 1 4.223-1.797.506.506 0 0 0-.112-.994 18.387 18.387 0 0 1-5.288-1.015c-.65-.214-1.421-.477-1.502-1.229-.082-.751 1.004-1.329 1.481-1.542Z" fill="#3A4374"/><path d="M71.262 58.993s12.362 18.574 4.882 18.838c-7.48.264-8.12-1.695-8.12-1.695" fill="#fff"/><path d="M74.804 78.42c-6.273 0-7.176-1.715-7.298-2.03a.538.538 0 0 1 .335-.67.528.528 0 0 1 .66.335s.913 1.573 7.623 1.33a1.715 1.715 0 0 0 1.644-.853c1.603-3.116-4.466-13.449-6.943-17.163a.528.528 0 0 1 .873-.59c.944 1.422 9.135 14.008 7.004 18.27a2.72 2.72 0 0 1-2.538 1.432l-1.36-.061Z" fill="#3A4374"/><ellipse cx="105.69" cy="57.988" rx="4.486" ry="7.643" fill="#C0C5DC"/><ellipse cx="50.789" cy="57.988" rx="3.421" ry="6.181" fill="#3A4374"/></g></svg>
+        <p class="none-title">There is no feedback yet.</p>
+        <p class="none-text">Got a suggestion? Found a bug that needs to be squashed? We love hearing about new ideas to improve our app.</p>
+        <router-link to="/add" class="none-button">+ Add Feedback</router-link>
       </section>
     </section>
   </section>
@@ -132,10 +138,18 @@ export default {
         suggestions.sort((a, b) => a.upvotes - b.upvotes)
       }
       else if (this.activeSort === 'Most Comments') {
-        suggestions.sort((a, b) => b.comments.length - a.comments.length)
+        suggestions = suggestions.map(el => ({
+          ...el,
+          commentsNumber: typeof(el.comments) === "undefined" ? 0 : el.comments.length
+        }))
+        suggestions.sort((a, b) => b.commentsNumber - a.commentsNumber)
       }
-      else if (this.activeSort === 'Least Upvotes') {
-        suggestions.sort((a, b) => a.comments.length - b.comments.length)
+      else if (this.activeSort === 'Least Comments') {
+        suggestions = suggestions.map(el => ({
+          ...el,
+          commentsNumber: typeof(el.comments) === "undefined" ? 0 : el.comments.length
+        }))
+        suggestions.sort((a, b) => a.commentsNumber - b.commentsNumber)
       }
 
       suggestions = suggestions.map(el => {
@@ -152,6 +166,10 @@ export default {
   methods: {
     getFeedbacksByStatus(status) {
       return this.productRequests.filter(el => el.status === status).length
+    },
+    selectCategory(category) {
+      this.activeCategory = category
+      this.mobileOptionsShown = false
     },
     selectSortingOption(option) {
       this.activeSort = option
@@ -744,6 +762,7 @@ export default {
           display: flex;
           flex-direction: column;
           align-items: flex-start;
+          text-decoration: none;
 
           @media (max-width: 767px) {
             order: 1;
@@ -836,6 +855,91 @@ export default {
               opacity: 0.5;
             }
           }
+        }
+      }
+    }
+
+    .suggestions-none {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: #FFFFFF;
+      border-radius: 10px;
+      padding: 110px 24px;
+
+      @media (max-width: 767px) {
+        padding: 76px 24px;
+        width: calc(100% - 48px);
+        margin: 32px 24px 48px;
+      }
+
+      svg {
+        height: 136px;
+        margin-bottom: 55px;
+
+        @media (max-width: 767px) {
+          height: 108px;
+          margin-bottom: 40px;
+        }
+      }
+
+      .none-title {
+        font-family: Jost;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 35px;
+        text-align: center;
+        letter-spacing: -0.333333px;
+        color: #3A4374;
+        margin: 0 0 16px;
+
+        @media (max-width: 767px) {
+          font-size: 18px;
+          line-height: 26px;
+          margin-bottom: 14px;
+        }
+      }
+
+      .none-text {
+        max-width: 410px;
+        font-family: Jost;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 23px;
+        text-align: center;
+        color: #647196;
+        margin: 0 0 48px;
+
+        @media (max-width: 767px) {
+          font-size: 13px;
+          line-height: 19px;
+          margin-bottom: 24px;
+        }
+      }
+
+      .none-button {
+        background-color: #AD1FEA;
+        border-radius: 10px;
+        padding: 12px 24px;
+        font-family: Jost;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 20px;
+        color: #F2F4FE;
+        text-decoration: none;
+
+        &:hover {
+          background-color: #C75AF6;
+        }
+
+        @media (max-width: 767px) {
+          padding: 10px 16px;
+          font-size: 13px;
+          line-height: 19px;
         }
       }
     }

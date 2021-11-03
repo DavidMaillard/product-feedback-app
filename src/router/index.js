@@ -2,6 +2,10 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Head from 'vue-head'
 import Suggestions from '@/views/Suggestions.vue'
+import Add from '@/views/Add.vue'
+import Edit from '@/views/Edit.vue'
+import Details from '@/views/Details.vue'
+import Roadmap from '@/views/Roadmap.vue'
 
 Vue.use(Router)
 
@@ -21,6 +25,38 @@ const router = new Router({
       path: '/',
       name: 'home',
       component: Suggestions,
+      meta: {
+        authNotRequired: true
+      }
+    },
+    {
+      path: '/add',
+      name: 'add',
+      component: Add,
+      meta: {
+        authNotRequired: true
+      }
+    },
+    {
+      path: '/edit/:id',
+      name: 'edit',
+      component: Edit,
+      meta: {
+        authNotRequired: true
+      }
+    },
+    {
+      path: '/details/:id',
+      name: 'details',
+      component: Details,
+      meta: {
+        authNotRequired: true
+      }
+    },
+    {
+      path: '/roadmap',
+      name: 'roadmap',
+      component: Roadmap,
       meta: {
         authNotRequired: true
       }
